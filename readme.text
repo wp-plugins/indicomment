@@ -6,9 +6,12 @@ Tested up to: 2.7.1
 Stable tag: trunk
 Requires at least: 2.7
 
-Use of this plugin will enable visitors to write their comment in Indian languages.
+Use of this plugin will enable visitors to write their comment in Indian languages (Hindi, Tamil, Telugu, Kannada, Malayalam and Arabic)
+
 == Description ==
 Use of this plugin will enable visitors to write their comment in Indian languages. Vistor’s write in Roman script and the plugin automatically converts it in corresponding Indian Script using google transliteration service. It’s a very easy way to allow users to type in Indian language script.
+
+Right now supported scripts includes: Hindi, Tamil, Telugu, Kannada, Malayalam and Arabic
 
 == Screenshots ==
 Not available
