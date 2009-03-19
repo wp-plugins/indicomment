@@ -1,0 +1,25 @@
+=== Plugin Name ===
+Contributors: webkoof
+Donate link: http://webkoof.com/
+Tags: comments, Indian language, transliteration
+Tested up to: 2.7.1
+Stable tag: trunk
+Requires at least: 2.7
+
+Use of this plugin will enable visitors to write their comment in Indian languages.
+== Description ==
+Use of this plugin will enable visitors to write their comment in Indian languages. Vistor’s write in Roman script and the plugin automatically converts it in corresponding Indian Script using google transliteration service. It’s a very easy way to allow users to type in Indian language script.
+
+== Screenshots ==
+Not available
+
+== Installation ==
+
+1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
+1. Activate the plugin through the 'Plugins' menu in WordPress
+
+
+== Frequently Asked Questions ==
+
+For any question/feedback/suggestion leave a comment on the [plugin homepage](http://webkoof.com).
+
