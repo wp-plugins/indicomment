@@ -3,7 +3,7 @@
 Plugin Name: Indic Comment
 Plugin URI: http://webkoof.com/wordpress-plugins/indicomment-comment-in-indian-language/
 Description: Visitors  can write their comment in Indian languages. Vistor's write in Roman script and the plugin automatically converts it in corresponding Indian Script.
-Version:  0.2
+Version:  0.3
 Author: Vikash Kumar
 Author URI: http://webkoof.com
 */
@@ -31,9 +31,12 @@ Author URI: http://webkoof.com
 
 <?php
 
-function comment() {
+function indiComment_comment() {
+$lang='hi';
+$enabled=0;
 $lang = get_option('indicLanguage');
-if ($lang=="") $lang='hi';
+$enabled = get_option('indicEnabled');
+
 ?>
 
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
@@ -42,12 +45,13 @@ if ($lang=="") $lang='hi';
             packages: "transliteration"
           });
 	  var lang= decodeURIComponent("<?php echo rawurlencode($lang); ?>");
+	  var e= <?php echo $enabled; ?>;
       function onLoad() {
         var options = {
           sourceLanguage: 'en',            
           destinationLanguage: lang,    
           shortcutKey: 'ctrl+g',   
-          transliterationEnabled: true
+          transliterationEnabled: e
         };
  
         var control =
@@ -62,14 +66,17 @@ if ($lang=="") $lang='hi';
 <?php
 }
 
-function menu() {
-  add_submenu_page('edit-comments.php', 'Indic Comments', 'IndiComment', 8, __FILE__, 'options');
+function indiComment_menu() {
+  add_submenu_page('edit-comments.php', 'Indic Comments', 'IndiComment', 8, __FILE__, 'indiComment_options');
 }
 
-function options() {
+function indiComment_options() {
 if( $_POST['action' ] == 'update' ) {
  update_option( 'indicLanguage', $_POST['indicLanguage'] );
+ update_option( 'indicEnabled', $_POST['indicEnabled'] );
 }
+$lang = get_option('indicLanguage');
+$enabled = get_option('indicEnabled');
 ?>
 
 <div class="wrap">
@@ -80,25 +87,32 @@ if( $_POST['action' ] == 'update' ) {
 
 <table class="form-table">
 
- 
 <tr valign="top">
-<th scope="row">Indic Language default</th>
+<td width="200px"><b>Indic Language default</b></td>
 <td><select name="indicLanguage" >
-<option value="hi">Hindi (hi) </option> 
-<option value="ta">Tamil (ta) </option> 
-<option value="te">Telugu (te)</option> 
-<option value="kn">kannad (kn)</option> 
-<option value="ml">Malyalam (ml)</option> 
-<option value="ar">Arabic (ar)</option> 
-</select></td></tr>
-<tr>
-<td>Current Selection: </td><td><?php echo get_option('indicLanguage'); ?></td>
-</tr>
+<option value="hi" <?php if ($lang=="hi") echo "selected";?>>Hindi (hi) </option> 
+<option value="ta" <?php if ($lang=="ta") echo "selected";?>>Tamil (ta) </option> 
+<option value="te" <?php if ($lang=="te") echo "selected";?>>Telugu (te)</option> 
+<option value="kn" <?php if ($lang=="kn") echo "selected";?>>kannad (kn)</option> 
+<option value="ml" <?php if ($lang=="ml") echo "selected";?>>Malyalam (ml)</option> 
+<option value="ar" <?php if ($lang=="ar") echo "selected";?>>Arabic (ar)</option> 
+</select></td>
+<td>
+Select the script in which you want the transliteration to work.
+</td></tr>
 
+<tr valign="top">
+<td><b>Enabled by default</b></td>
+<td><select name="indicEnabled" >
+<option value="1" <?php if ($enabled==1) echo "selected";?>>True</option> 
+<option value="0" <?php if ($enabled==0) echo "selected";?>>False</option> 
+</select></td>
+ <td> 
+If this is 'true' then comment form will use indian language on page load and you need to press ctrl+g to go back to english. If this is 'false' then comment form will use english and you need to press ctrl+g to write in Indic language.
+</td></tr>
 </table>
 
 <input type="hidden" name="action" value="update" />
-<input type="hidden" name="page_options" value="new_option_name,some_other_option,option_etc" />
 
 <p class="submit">
 <input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
@@ -111,7 +125,7 @@ if( $_POST['action' ] == 'update' ) {
 <?php
 }
 
-add_action('comment_form',  'comment');
-add_action('admin_menu', 'menu');
+add_action('comment_form',  'indiComment_comment');
+add_action('admin_menu', 'indiComment_menu');
 
 ?>

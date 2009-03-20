@@ -1,11 +1,10 @@
 ﻿=== Plugin Name ===
 Contributors: webkoof
 Donate link: http://webkoof.com/
-Tags: comments, Indian language, transliteration
+Tags: comments, Indian language, transliteration, hindi comment, Hindi, Tamil, Telugu, Kannada, Malayalam, Arabic
 Requires at least: 2.5
-Tested up to: 2.7
+Tested up to: 2.7.1
 Stable tag: trunk
-
 
 Use of this plugin will enable visitors to write their comment in Indian languages (Hindi, Tamil, Telugu, Kannada, Malayalam and Arabic)
 
@@ -21,7 +20,7 @@ Pressing Ctrl+G will toggle between english and chosen indian langueage.
 
 1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Go to comments -> IndiComments and set up the default language for transliteration.
+1. Go to comments -> IndiComments and set up the options.
 
 == Screenshots ==
 Instead of screenshot, see the real live version here: [p4poetry](http://p4poetry.com)
