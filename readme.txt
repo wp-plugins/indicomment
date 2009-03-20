@@ -22,9 +22,6 @@ Pressing Ctrl+G will toggle between english and chosen indian langueage.
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Go to comments -> IndiComments and set up the options.
 
-== Screenshots ==
-Instead of screenshot, see the real live version here: [p4poetry](http://p4poetry.com)
-
 == Frequently Asked Questions ==
 
 = What is transliteration? =
@@ -35,4 +32,9 @@ It means your computer does not have support for indian languages. Check [wikipe
 
 = I need to say something to the plugin author. Where to contact him? =
 For any question/feedback/suggestion leave a comment on the [plugin homepage](http://webkoof.com).
+
+
+== Screenshots ==
+Instead of screenshot, see the real live version here: [p4poetry](http://p4poetry.com)
+
 
